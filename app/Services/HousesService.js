@@ -29,6 +29,7 @@ class HousesService{
     async deleteHouse(id) {
         const res = await sandbox.delete(`houses/${id}`)
         console.log('[Deleting house]', res.data)
+        appState.houses = appState.houses.filter(house => house.id != id)
     }
 
 }
